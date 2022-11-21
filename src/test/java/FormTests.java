@@ -14,11 +14,12 @@ public class FormTests {
     static WebDriver driver;
     @BeforeClass
     public static void setUp(){
-//        System.setProperty(FirefoxDriver.SystemProperty.BROWSER_LOGFILE,"/dev/null");
+        System.setProperty(FirefoxDriver.SystemProperty.BROWSER_LOGFILE,"/dev/null");
         driver = new FirefoxDriver();
+        driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(3));
-        driver.get("https://demoqa.com/automation-practice-form");
-//        driver.get("https://testautomationpractice.blogspot.com/");
+
+        driver.get("https://testautomationpractice.blogspot.com/");
     }
     @Test
     public static void inputExample(){
@@ -27,6 +28,7 @@ public class FormTests {
 
         mySleep();
     }
+
     @Test
     public static void chooseDate(){
         WebElement dateInput = driver.findElement(By.cssSelector("input#datepicker"));
@@ -37,7 +39,7 @@ public class FormTests {
     }
 
     @Test
-    public static void select(){
+    public static void selectSpeed(){
         WebElement selectElement = driver.findElement(By.id("speed"));
         Select selectSpeed = new Select(selectElement);
 
@@ -48,6 +50,7 @@ public class FormTests {
 
     @Test
     public void sendFile(){
+        driver.get("https://demoqa.com/automation-practice-form");
         System.out.println(System.getProperty("user.dir"));
         WebElement uploadElement = driver.findElement(By.id("uploadPicture"));
 
