@@ -8,6 +8,6 @@ public class HomePageTests {
         WebDriver driver = new ChromeDriver();
         driver.get("https://sampleshop.inqa.pl");
 
-        driver.close();
+        driver.quit();
     }
 }

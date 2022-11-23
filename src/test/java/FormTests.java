@@ -65,6 +65,6 @@ public class FormTests {
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }
-        driver.close();
+        driver.quit();
     }
 }
