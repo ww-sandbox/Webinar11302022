@@ -10,7 +10,7 @@ import org.testng.annotations.Test;
 
 import java.time.Duration;
 
-public class WaituTests {
+public class WaitTests {
     WebDriver driver;
 
     @BeforeClass
