@@ -26,6 +26,8 @@ public class ScreenShotsTests {
         firstNameInput.sendKeys("Wojtek");
 
         File source = firstNameInput.getScreenshotAs(OutputType.FILE);
+//        zrzut ekranu z konkretnego elementu to nowość wprowadzona w 4 wersji Selenium. Wcześniej aby uzyskać
+//        taki zrzut potrzebne były dodatkowe biblioteki
         File dest = new File(System.getProperty("user.dir") +    "/target/screenshots/elementLogo.png");
 
         try {
@@ -43,9 +45,17 @@ public class ScreenShotsTests {
         firstNameInput.sendKeys("Wojtek");
 
         File scrFile = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
+//        zapisujemy zrzut części ekranu strony w przeglądarce do pliku
         File dest = new File(System.getProperty("user.dir") + "/target/screenshots/image.png");
+//        tworzymy plik wyjściowy do którego trafią dane
         try {
             FileUtils.copyFile(scrFile, dest);
+//            kopiujemy zrzut do pliku wyjściowego
+//            dwie poniższe linijki wykonują to samo kopiowanie. Jednak w tym przypadku musimy dodatkowo stworzyć
+//            folder na plik wynikowy jeśli nie istnieje. FileHandler to część całej paczki Selenium, natomiast
+//            FileUtils to część commons-io od Apache. Zawsze należy zdecydować czy chcemy ograniczyć ilość paczek
+//            w projekcie, czy postawić na prostszy kod.
+
 //            FileHandler.createDir(new File(System.getProperty("user.dir") + "/target/screenshots"));
 //            FileHandler.copy(scrFile, new File(System.getProperty("user.dir") + "/target/screenshots/image.png"));
         } catch (IOException e) {
